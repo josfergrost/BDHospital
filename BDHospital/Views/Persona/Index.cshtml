@@ -1,0 +1,30 @@
+﻿@using BDHospital.Clases;
+@model IEnumerable<PersonaCLS>;
+
+@{
+    ViewData["Title"] = "Tabla de Personas";
+}
+<h1>Tabla Personas</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model=>model.idpersona)</th>
+            <th>@Html.DisplayNameFor(model=>model.NombreCompleto)</th>
+            <th>@Html.DisplayNameFor(model=>model.email)</th>
+            <th>@Html.DisplayNameFor(model=>model.nsexo)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(PersonaCLS per in Model)
+        {
+            <tr>
+            <td>@per.idpersona</td>
+            <td>@per.NombreCompleto</td>
+            <td>@per.email</td>
+            <td>@per.nsexo</td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+
