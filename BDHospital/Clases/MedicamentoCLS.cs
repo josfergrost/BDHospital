@@ -13,5 +13,9 @@ namespace BDHospital.Clases
         public string nombreforma { get; set; }
         [Display(Name = "Precio")]
         public decimal precio { get; set; }
+        [Display(Name = "Stock")]
+        public int stock { get; set; }
+        public int idformafarmaceutica { get; set; }
+
     }
 }

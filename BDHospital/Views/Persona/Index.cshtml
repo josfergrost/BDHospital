@@ -1,10 +1,18 @@
-﻿@using BDHospital.Clases;
+﻿
+@using BDHospital.Clases;
 @model IEnumerable<PersonaCLS>;
 
 @{
     ViewData["Title"] = "Tabla de Personas";
+    List<SelectListItem> listasexo = ViewBag.listaSexo;
 }
 <h1>Tabla Personas</h1>
+<form asp-controller="Persona" asp-action="Index" method="post" style="display:grid;grid-template-columns:1fr 2fr 1fr 1fr"  id ="frmEnviar">
+    <label>Ingresa el Sexo</label>
+    @Html.DropDownList("idsexo",listasexo,new {@class="form form-control"})
+    <input type="submit" class="btn btn-outline-primary" value = "Buscar" />
+    <input type = "button" class="btn btn-outline-warning" value="Limpiar" onclick="Limpiar()" />
+</form>
 <table class="table">
     <thead>
         <tr>
@@ -27,4 +35,9 @@
     </tbody>
 </table>
 
-
+<script>
+    function Limpiar(){
+        document.getElementById("idsexo").value="";
+        document.getElementById("frmEnviar").submit();
+    }
+</script>

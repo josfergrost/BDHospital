@@ -2,13 +2,16 @@
 
 @{
     ViewData["Title"] = "Index";
+    List<SelectListItem> listaforma = ViewBag.listaForma;
 }
 
 <h1>Index</h1>
+<form style ="display:grid;gridgrid-template-columns: 1fr 2fr" class="mb-2" id="frmEnviar">
+    <label>Ingresa la forma farmaceutica</label>
+    @Html.DropDownList("idformafarmaceutica",listaforma,new {@class="form form-control"})
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+</form>
+
 <table class="table">
     <thead>
         <tr>
@@ -24,7 +27,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.precio)
             </th>
-            <th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.stock)
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -43,11 +48,17 @@
                 @Html.DisplayFor(modelItem => item.precio)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.DisplayFor(modelItem => item.stock)
             </td>
+            
         </tr>
 }
     </tbody>
 </table>
+
+<script>
+    var idformafarmaceutica = document.getElementById("idformafarmaceutica")
+    idformafarmaceutica.onchange = function () {
+        document.getElementById("frmEnviar").submit();
+    }
+</script>

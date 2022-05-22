@@ -1,0 +1,43 @@
+﻿@using BDHospital.Clases;
+@model GetSetEspecialidad;
+@{
+    ViewData["Title"] = "Agregar";
+}
+
+<h1>Agregar</h1>
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Agregar" asp-controller="Especialidad" method="post" id="frmEnviar">
+            <div class="form-group">
+                <label asp-for=nombre></label>
+                <input asp-for=nombre class="form form-control"/>
+                <span asp-validation-for=nombre class="text-danger"></span>
+            </div>
+            <div class="form-group mb-2">
+                <label asp-for=descripcion></label>
+                <input asp-for=descripcion class="form form-control"/>
+                <span asp-validation-for=descripcion class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="button" class="btn btn-primary" onClick="abrirModal()" value="Agregar" />
+                <a asp-controller="Especialidad" asp-action="Index" class="btn btn-danger">Regresar</a>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="~/js/sweetalert2.js"></script>
+<script src="~/js/Generic.js"></script>
+<script>
+    function abrirModal()
+    {
+                mostrarModal().then((result) => {
+    
+               if (result.isConfirmed) 
+               {
+                //aqui se redireccionara a la vista Agregar
+                var frmEnviar = document.getElementById("frmEnviar")
+                frmEnviar.submit();
+                }
+                })
+    }
+</script>

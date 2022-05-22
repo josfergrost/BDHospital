@@ -2,9 +2,22 @@
 @model IEnumerable<GetSetEspecialidad>;
 @{
     ViewData["Title"] = "Albrianlegustaelpito";
+    string msn = ViewBag.mensaje;
 }
 
 <h1>Lista de Especialidades</h1>
+<h2>@msn</h2>
+<form asp-controller="Especialidad" asp-action="Index" method="post" 
+style="display:grid;grid-template-columns:1fr 2fr 1fr 1fr"
+class=mb-2 id=formular>  
+    <label>Ingrese el Nombre de la Especialidad</label>
+    <input type="text" class="form-check form-control" name="nombre" id="nombre" value=@msn />
+    <input type="submit" value="buscar" class="btn btn-info" />
+    <input type="button" value="Limpiar" class="btn btn-outline-danger" onclick="Limpiar()" />
+</form>
+<a class="btn btn-secondary" asp-controller="Especialidad" asp-action="Agregar">
+    Agregar
+</a>
 <table class="table">
     <thead class="thead-dark">
         <tr>
@@ -25,3 +38,10 @@
         }
     </tbody>
 </table>
+
+<script>
+    function Limpiar(){
+        document.getElementById("nombre").value="";
+        document.getElementById("formular").submit();
+    }
+</script>

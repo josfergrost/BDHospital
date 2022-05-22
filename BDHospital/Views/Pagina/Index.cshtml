@@ -1,4 +1,4 @@
-﻿@model IEnumerable<BDHospital.Clases.PaginaCLS>
+﻿@model IEnumerable<BDHospital.Models.Doctor>
 
 @{
     ViewData["Title"] = "Index";
@@ -13,13 +13,25 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.idPagina)
+                @Html.DisplayNameFor(model => model.Iiddoctor)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.mensaje)
+                @Html.DisplayNameFor(model => model.Iidsede)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.accion)
+                @Html.DisplayNameFor(model => model.Iidespecialidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sueldo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fechacontrato)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Iidpersona)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bhabilitado)
             </th>
             <th></th>
         </tr>
@@ -28,13 +40,25 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.idPagina)
+                @Html.DisplayFor(modelItem => item.Iiddoctor)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.mensaje)
+                @Html.DisplayFor(modelItem => item.Iidsede)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.accion)
+                @Html.DisplayFor(modelItem => item.Iidespecialidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sueldo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fechacontrato)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Iidpersona)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bhabilitado)
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |

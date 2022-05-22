@@ -14,6 +14,8 @@ namespace BDHospital.Clases
         [Display(Name = "Sexo")]
         public string nsexo { get; set; }
         
+        public int idsexo { get; set; }
+        
     }
 
     }
